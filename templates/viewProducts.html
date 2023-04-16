@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block maincontent %}
+    <div class="container">
+        <h2 class="text-center my-5">View Products</h2>
+
+        <table class="table table-hover table-light">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Merchant ID</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in viewproducts %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.description }}</td>
+                    <td>{{ i.price }}</td>
+                    <td>{{ i.discount }}</td>
+                    <td>{{ i.Merchant_id }}</td>
+                    <td>
+                        <img src="/static/media/{{ i.image }} " alt="" width="150">
+                    </td>
+                    <td><a href="update_product/{{ i.id }}" class="btn btn-outline-info">Update</a></td>
+                    <td><a href="delete_product/{{ i.id }}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

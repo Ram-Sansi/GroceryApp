@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% load  static %}
+{% block maincontent %}
+    <div class="container">
+        <form action="/delete_product/{{ product.id }}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="id_name">Name:</label>
+                <input type="text" name="name" value="{{ product.name }}" class="form-control" maxlength="255"
+                       required="" id="id_name">
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="id_description">Description:</label>
+                <input type="text" name="description" value="{{ product.description }}" class="form-control" required="" id="id_description">
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="id_price">Price:</label>
+                <input type="text" name="price" value="{{ product.price }}" class="form-control" required="" id="id_price">
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="id_discount">Discount:</label>
+                <input type="text" name="discount" value="{{ product.discount }}" class="form-control" required="" id="id_discount">
+
+            </div>
+
+            <div class="col-sm-8 img-fluid">
+                <img src="/static/media/{{ product.image }}" alt="">
+            </div>
+            <div class="mb-3">
+                <label for="id_image">Image:</label>
+                <input type="file" name="image" class="form-control" id="id_image">
+
+            </div>
+
+
+            <div class="text-center">
+                <input type="submit" value="Submit" class="btn btn-outline-success w-25 my-2">
+
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

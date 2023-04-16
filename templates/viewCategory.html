@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block maincontent %}
+    <div class="container">
+        <h2 class="text-center my-5 text-primary">View Category</h2>
+
+        <table class="table table-hover table-light">
+            <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Description</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in viewcategory %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.desc }}</td>
+
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
