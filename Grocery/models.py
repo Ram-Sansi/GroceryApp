@@ -11,6 +11,8 @@ class Category(models.Model):
     class Meta:
         db_table = 'category'
 
+        verbose_name_plural = 'categories'
+
     def __str__(self):
         return self.name
 
@@ -26,6 +28,7 @@ class Merchant(models.Model):
 
     class Meta:
         db_table = 'Merchant'
+
 
     def __str__(self):
         return self.name
@@ -45,3 +48,4 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'products'
+        verbose_name_plural = 'products'

@@ -20,6 +20,8 @@ from django.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include('Grocery.urls'))
+    path("Grocery/", include('Grocery.urls')),
+    path("", include('customer.urls')),
+
 
 ]

@@ -7,6 +7,9 @@ from .forms import *
 
 # Create your views here.
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
 
 def user_login(request):
     return render(request, 'user_login.html')
@@ -29,21 +32,24 @@ def add_user(request):
 
 
 def login(request):
-    email = request.POST['email']
-    password = request.POST['password']
-    user_login = Merchant.objects.filter(email=email, password=password)
-    if len(user_login) == 0:
-        messages.warning(request, "Invalid Username Or Password")
+    if 'user' in request.session:
+        return redirect('dashboard')
     else:
-        messages.success(request, "Login Successful!")
-        d = {
-            'id': user_login[0].id,
-            'email': email,
-            'name': user_login[0].name,
-            'mobile': user_login[0].mobile
-        }
-        request.session['user'] = d
-    return redirect('user_login')
+        email = request.POST['email']
+        password = request.POST['password']
+        user_login = Merchant.objects.filter(email=email, password=password)
+        if len(user_login) == 0:
+            messages.warning(request, "Invalid Username Or Password")
+        else:
+            messages.success(request, "Login Successful!")
+            d = {
+                'id': user_login[0].id,
+                'email': email,
+                'name': user_login[0].name,
+                'mobile': user_login[0].mobile
+            }
+            request.session['user'] = d
+        return redirect('user_login')
 
 
 def user_logout(request):
