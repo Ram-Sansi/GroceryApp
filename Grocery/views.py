@@ -12,7 +12,7 @@ def dashboard(request):
 
 
 def user_login(request):
-    return render(request, 'user_login.html')
+    return render(request, 'user_login.html', {'pageTitle': user_login})
 
 
 def add_user(request):
