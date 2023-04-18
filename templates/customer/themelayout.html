@@ -80,16 +80,16 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="search-box">
-                            <form class="search-field">
+                            <form action="/searchproducts" class="search-field">
                                 <input type="text" class="search-field" placeholder="Search product...">
-                                <button class="search-btn"><i class="icon-rt-loupe"></i></button>
+                                <button type="submit" id="submit" class="search-btn"><i class="icon-rt-loupe"></i></button>
                             </form>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="header-middle-right-area">
                             <div class="my-account">
-                                <a href="#" class="header-action-item" data-bs-toggle="modal"
+                                <a href="{% url 'client_login' %}" class="header-action-item" data-bs-toggle="modal"
                                    data-bs-target="#exampleModal"><i class="icon-rt-user"></i></a>
                             </div>
                             <div class="wishlist">

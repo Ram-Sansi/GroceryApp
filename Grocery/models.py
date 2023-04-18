@@ -8,6 +8,7 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     desc = models.TextField()
 
+
     class Meta:
         db_table = 'category'
 
@@ -29,7 +30,6 @@ class Merchant(models.Model):
     class Meta:
         db_table = 'Merchant'
 
-
     def __str__(self):
         return self.name
 
@@ -42,6 +42,7 @@ class Products(models.Model):
     image = models.FileField(upload_to='products/')
 
     Merchant = models.ForeignKey(to=Merchant, on_delete=models.CASCADE)
+    category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

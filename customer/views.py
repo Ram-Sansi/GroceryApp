@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.shortcuts import *
 from django.views import View
 from .models import *
+from Grocery.models import *
 
 
 # Create your views here.
@@ -55,3 +56,22 @@ def client_logout(request):
 
 def index(request):
     return render(request, 'customer/index.html')
+
+
+def view(request):
+    prod = Products.objects.all()
+    cat = Category.objects.all()
+    return render(request, 'customer/view.html', {'prod': prod, 'cat': cat})
+
+
+def viewProductByCategory(request, id):
+    prod = Products.objects.filter(category_id=id)
+    cat = Category.objects.all()
+    return render(request, 'customer/view.html', {'prod': prod, 'cat': cat})
+
+
+def searchproducts(request):
+    name = request.POST['name']
+    description = request.POST['description']
+    search = Products.objects.filter(name=name, description=description)
+    return render(request, 'customer/view.html', {'search': search})

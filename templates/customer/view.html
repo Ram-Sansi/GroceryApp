@@ -1,0 +1,381 @@
+{% extends 'customer/themelayout.html' %}
+{% load static %}
+
+{% block customercontent %}
+    <main>
+        <!-- Breadcrumb Start -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-content">
+                            <h1 class="page-title">Shop</h1>
+                            <ul class="breadcrumb-page-list">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item">Shop</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Breadcrumb End -->
+
+        <!-- Page Section Content Start -->
+        <section class="page-secton-wrapper section-space-pb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 sidebar widget-area-side left-sidebar order-2 order-lg-1">
+
+                        <div class="shop-widget">
+                            <h5 class="widget-title">
+                                Product categories
+                            </h5>
+                            <ul class="product-categorie">
+                                {% for i in cat %}
+                                    <li class="product-categorie-item"><a
+                                            href="/viewProductByCategory/{{ i.id }}">{{ i.name }}</a></li>
+
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+
+                        {#                        <div class="shop-widget">#}
+                        {#                            <h5 class="widget-title">#}
+                        {#                                Filter By Price#}
+                        {#                            </h5>#}
+                        {##}
+                        {#                            <!-- filter-price-content Start -->#}
+                        {#                            <div class="filter-price-content">#}
+                        {#                                <form action="#" method="post">#}
+                        {#                                    <div id="price-slider" class="price-slider"></div>#}
+                        {#                                    <div class="filter-price-wapper">#}
+                        {#                                        <div class="filter-price-cont">#}
+                        {#                                            <span>Price:</span>#}
+                        {#                                            <div class="input-type">#}
+                        {#                                                <input type="text" id="min-price" readonly=""/>#}
+                        {#                                            </div>#}
+                        {#                                            <span>—</span>#}
+                        {#                                            <div class="input-type">#}
+                        {#                                                <input type="text" id="max-price" readonly=""/>#}
+                        {#                                            </div>#}
+                        {#                                        </div>#}
+                        {##}
+                        {#                                        <a class="add-to-cart-button" href="#">#}
+                        {#                                            <span>Filter</span>#}
+                        {#                                        </a>#}
+                        {#                                    </div>#}
+                        {#                                </form>#}
+                        {#                            </div>#}
+                        {#                            <!-- filter-price-content end -->#}
+                        {#                        </div>#}
+
+                        {#                        <div class="shop-widget">#}
+                        {#                            <h5 class="widget-title">#}
+                        {#                                Brand#}
+                        {#                            </h5>#}
+                        {#                            <ul class="product-brand">#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="beverages" id="beverages">#}
+                        {#                                    <label for="beverages">Beverages (2)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="frozen-foods" id="frozen-foods">#}
+                        {#                                    <label for="frozen-foods">Frozen Foods (1)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="pantry" id="pantry">#}
+                        {#                                    <label for="pantry">Pantry (2)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="shop" id="shop">#}
+                        {#                                    <label for="shop">Shop (5)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="snacks" id="snacks">#}
+                        {#                                    <label for="snacks">Snacks (4)</label>#}
+                        {#                                </li>#}
+                        {#                            </ul>#}
+                        {#                        </div>#}
+
+                        {#                        <div class="shop-widget">#}
+                        {#                            <h5 class="widget-title">#}
+                        {#                                Dietary & Lifestyle#}
+                        {#                            </h5>#}
+                        {#                            <ul class="product-brand">#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="hight-fiber" id="hight-fiber">#}
+                        {#                                    <label for="hight-fiber">Hight fiber (23)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="Hight Protein" id="hight-protein">#}
+                        {#                                    <label for="hight-protein">Hight Protein (6)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="Low sodium" id="low-sodium">#}
+                        {#                                    <label for="low-sodium">Low sodium (20)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="Low Sugar" id="low-sugar">#}
+                        {#                                    <label for="low-sugar">Low Sugar (2)</label>#}
+                        {#                                </li>#}
+                        {#                                <li class="product-brand-item">#}
+                        {#                                    <input type="checkbox" name="nut free" id="nut-free">#}
+                        {#                                    <label for="nut-free">Nut-free (21)</label>#}
+                        {#                                </li>#}
+                        {#                            </ul>#}
+                        {#                        </div>#}
+
+                        {#                        <div class="shop-widget">#}
+                        {#                            <h5 class="widget-title">#}
+                        {#                                Average Rating#}
+                        {#                            </h5>#}
+                        {#                            <ul class="product-categories">#}
+                        {#                                <li class="single-product-item-rating-list">#}
+                        {#                                    <a href="#" class="single-product-item-rating">#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <span class="small">(21)</span>#}
+                        {#                                    </a>#}
+                        {#                                </li>#}
+                        {#                                <li class="single-product-item-rating-list">#}
+                        {#                                    <a href="#" class="single-product-item-rating">#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <span class="small">(1)</span>#}
+                        {#                                    </a>#}
+                        {#                                </li>#}
+                        {#                                <li class="single-product-item-rating-list">#}
+                        {#                                    <a href="#" class="single-product-item-rating">#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <span class="small">(2)</span>#}
+                        {#                                    </a>#}
+                        {#                                </li>#}
+                        {#                                <li class="single-product-item-rating-list">#}
+                        {#                                    <a href="#" class="single-product-item-rating">#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <span class="small">(2)</span>#}
+                        {#                                    </a>#}
+                        {#                                </li>#}
+                        {#                                <li class="single-product-item-rating-list">#}
+                        {#                                    <a href="#" class="single-product-item-rating">#}
+                        {#                                        <i class="icon-rt-star-solid select-star"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <i class="icon-rt-star-solid"></i>#}
+                        {#                                        <span class="small">(1)</span>#}
+                        {#                                    </a>#}
+                        {#                                </li>#}
+                        {#                            </ul>#}
+                        {#                        </div>#}
+
+                    </div>
+                    <div class="col-lg-9 col-12 order-1 order-lg-2">
+                        <!--shop toolbar start-->
+                        <div class="shop-toolbar-wrapper ms-lg-4 mb-3">
+                            <div class="shop-toolbar-btn d-flex align-items-center">
+                                <button data-role="grid-3" type="button" class="active btn-grid-3" title="3">
+                                    <i class="icon-rt-apps-sharp"></i>
+                                </button>
+                                <button data-role="grid-list" type="button" class=" btn-list" title="List">
+                                    <i class="icon-rt-list"></i>
+                                </button>
+                                <div class="page_amount ms-3">
+                                    <p>Showing</p>
+                                </div>
+                            </div>
+
+                            <form class="select_option" action="#">
+                                <select name="orderby" id="short">
+                                    <option selected value="1">Default sorting</option>
+                                    <option value="2">Sort by popularity</option>
+                                    <option value="3">Sort by newness</option>
+                                    <option value="4">Sort by price: low to high</option>
+                                    <option value="5">Sort by price: high to low</option>
+                                    <option value="6">Product Name: Z</option>
+                                </select>
+                            </form>
+
+                        </div>
+                        <!--shop toolbar end-->
+
+                        <div class="shop-product-wrapper ms-lg-4 border-top border-start row gx-0 archive-products">
+                            {% for i in prod %}
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                                    <!-- Single Item Start -->
+                                    <div class="single-product-item">
+                                        <div class="single-product-item-image">
+                                            <a href="product-details.html" class="prodcut-images">
+                                                <img class="primary-image"
+                                                     src="   /static/media/{{ i.image }}   " alt="">
+
+                                            </a>
+                                            <ul class="single-product-item-action">
+                                                <li class="single-product-item-action-list product-cart">
+                                                    <a href="product-details.html"
+                                                       class="single-product-item-action-link"><i
+                                                            class="icon-rt-basket-outline"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="single-product-item-content">
+                                            <div class="single-product-item-rating">
+                                                <i class="icon-rt-star-solid select-star"></i>
+                                                <i class="icon-rt-star-solid select-star"></i>
+                                                <i class="icon-rt-star-solid select-star"></i>
+                                                <i class="icon-rt-star-solid select-star"></i>
+                                                <i class="icon-rt-star-solid"></i>
+                                            </div>
+                                            <h6 class="single-product-item-title"><a
+                                                    href="#">{{ i.name }}</a></h6>
+                                            <div class="single-product-item-price">
+                                                Rs. {{ i.price }}
+                                            </div>
+                                            <div class="product-list-style">
+                                                <p class="product-list-description">{{ i.description }}</p>
+                                                <div class="product-list-action-cart">
+                                                    <a href="#"><span class="text">Add to cart</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- Single Item End -->
+
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                    {#                        <nav class="page-pagination">#}
+                    {#                            <ul class='page-pagination-numbers'>#}
+                    {#                                <li>#}
+                    {#                                    <a href="#" aria-current="page" class="page-numbers current">1</a>#}
+                    {#                                </li>#}
+                    {#                                <li>#}
+                    {#                                    <a class="page-numbers" href="#">2</a>#}
+                    {#                                </li>#}
+                    {#                                <li>#}
+                    {#                                    <a class="next page-numbers" href="#"><i class="icon-rt-arrow-right-solid"></i></a>#}
+                    {#                                </li>#}
+                    {#                            </ul>#}
+                    {#                        </nav>#}
+
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Page Section Content End -->
+
+
+        <!-- Newsletter Start -->
+        <section class="newsletter-section bg-secondary">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-6 order-md-1 order-lg-1">
+                        <div class="newsletter-title-wrap">
+                            <div class="newsletter-icons">
+                                <i class="iconrt- icon-rt-mail-open-outline"></i>
+                            </div>
+                            <div class="newsletter-content">
+                                <h2>Sign up to Newsletter</h2>
+                                <p>...and receive $20 coupon for first shopping</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6  mt-4 mt-md-0 order-md-2 order-lg-3">
+                        <div class="newsletter-whatsapp-wrap">
+                            <div class="newsletter-whatsapp-inner">
+                                <div class="whatsapp-icons">
+                                    <i class="iconrt- icon-rt-logo-whatsapp"></i>
+                                </div>
+                                <div class="whatsapp-content">
+                                    <p>Call Us 24/7</p>
+                                    <h2>+8 88 55 4168</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 mt-4 mt-lg-0 order-md-3 order-lg-2">
+                        <form action="#" class="newsletter-form">
+                            <input type="email" placeholder="Your Email Address..." required>
+                            <button class="btn btn--primary submit-button fw-semibold" type="submit">Subscribe!</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Newsletter End -->
+
+        <!-- Our Feature Section Start -->
+        <section class="our-feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-1">
+                                <i class="icon-rt-shipping-fast-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Shipping</h6>
+                                <p class="description">Online Only. Exclusions Apply</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-2">
+                                <i class="icon-rt-money-bill-wave-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Best Price Guarantee</h6>
+                                <p class="description">If You Find a Lower Price</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-3">
+                                <i class="icon-rt-gift-solid"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Free Curbside Pickup</h6>
+                                <p class="description">Grab Your Gear and Go</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-feature-item">
+                            <div class="feature-icon feature-icon-4">
+                                <i class="icon-rt-help-buoy-outline"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h6 class="title">Support 24/7</h6>
+                                <p class="description">Contact us 24 hours a day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Our Feature Section End -->
+
+    </main>
+{% endblock %}

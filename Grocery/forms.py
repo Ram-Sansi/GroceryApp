@@ -5,14 +5,16 @@ from .models import *
 class ProductsForm(forms.ModelForm):
     class Meta:
         model = Products
-        fields = ['name', 'description', 'price', 'discount', 'image']
+        fields = ['name', 'description', 'price', 'discount', 'image', 'category']
         # fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.TextInput(attrs={'class': 'form-control'}),
             'price': forms.TextInput(attrs={'class': 'form-control'}),
             'discount': forms.TextInput(attrs={'class': 'form-control'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'})
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+
         }
 
 
